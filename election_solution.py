@@ -5,10 +5,14 @@ pypoll_csv = os.path.join('election_data.csv')
 
 
 mylist = []
+
+
+mylist = []
 with open(pypoll_csv, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     for line in csvreader:
         mylist.append(line)
+
 
 def total_votes():
     sum = 0 
