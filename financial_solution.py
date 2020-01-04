@@ -21,10 +21,38 @@ def total_months():
 
 def prolo_total():
         sum = 0
-        for row in banklist:
-            if 'Profit/Losses' not in row[1]:
-                sum = sum + int(row[1])
+        for line in banklist:
+            if 'Profit/Losses' not in line[1]:
+                sum = sum + int(line[1])
         return sum
+
+def gre_inc():
+        curr=None
+        prev=None
+        diff=None
+        
+        for i,j in banklist:
+            if j.startswith("P"):
+                continue
+            if prev is None:
+                prev = int(j)
+                continue
+            
+            curr = int(j)
+            
+            if curr < prev:
+                prev = curr
+                continue
+            
+            currDiff = abs(curr - prev)
+            if diff is None:
+                diff = [i , currDiff]
+            if currDiff > diff[1]:
+                diff = [i , currDiff]
+            
+            prev = curr
+        
+        return diff
         
             
   #Financial Analysis
@@ -36,8 +64,13 @@ def prolo_total():
   #Greatest Decrease in Profits: Sep-2013 ($-2196167)
         
 def financial_results():
-    print(total_months())
-    print(prolo_total())
+    print("Financial Analysis")
+    print("------------------------")
+    print(f"Total Months: {total_months()}")
+    print(f"Total: ${prolo_total()}")
+    print(f"Average Change: $")
+    print(f"Greatest Increase in Profits: {gre_inc()}")
+    print(f"Greatest Decrease in Profits: ")
 
 financial_results()
 
