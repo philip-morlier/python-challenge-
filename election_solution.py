@@ -30,3 +30,10 @@ def correy_votes(columns):
             if 'Candidate' not in line[2] and 'Correy' in line[2]:
                 correy_sum = correy_sum + 1
         return correy_sum
+
+def tool_votes(columns):
+        tool_sum = 0 
+        for line in mylist:
+            if 'Candidate' not in line[2] and 'O' in line[2]:
+                tool_sum = tool_sum + 1
+        return tool_sum
