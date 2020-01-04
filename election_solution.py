@@ -37,3 +37,10 @@ def tool_votes(columns):
             if 'Candidate' not in line[2] and 'O' in line[2]:
                 tool_sum = tool_sum + 1
         return tool_sum
+
+def li_votes(columns):
+        li_sum = 0 
+        for line in mylist:
+            if 'Candidate' not in line[2] and 'Li' in line[2]:
+                li_sum = li_sum + 1
+        return li_sum
