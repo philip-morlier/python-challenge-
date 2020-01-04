@@ -44,3 +44,23 @@ def li_votes(columns):
             if 'Candidate' not in line[2] and 'Li' in line[2]:
                 li_sum = li_sum + 1
         return li_sum
+
+khan = khan_votes(mylist)
+correy = correy_votes(mylist)
+tool = tool_votes(mylist)
+li = li_votes(mylist)
+
+vote_count = [khan, correy, tool, li]
+
+def winner():
+    
+    if khan is max(vote_count):
+        return "Khan wins"
+    elif correy is max(vote_count):
+        return "Correy wins"
+    elif tool is max(vote_count):
+        return "O'Tool wins"
+    elif li is max(vote_count):
+        return "Li wins"
+    else:
+        raise Exception('Nobody Wins')
