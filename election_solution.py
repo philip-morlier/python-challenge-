@@ -23,3 +23,10 @@ def khan_votes(columns):
         if 'Candidate' not in line[2] and 'Khan' in line[2]:
             khan_sum = khan_sum + 1
     return khan_sum
+
+def correy_votes(columns):
+        correy_sum = 0 
+        for line in mylist:
+            if 'Candidate' not in line[2] and 'Correy' in line[2]:
+                correy_sum = correy_sum + 1
+        return correy_sum
