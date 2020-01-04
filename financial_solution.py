@@ -53,6 +53,34 @@ def gre_inc():
             prev = curr
         
         return diff
+
+def gre_dec():
+        curr=None
+        prev=None
+        diff=None
+        
+        for i,j in banklist:
+            if j.startswith("P"):
+                continue
+            if prev is None:
+                prev = int(j)
+                continue
+            
+            curr = int(j)
+            
+            if curr > prev:
+                prev = curr
+                continue
+            
+            currDiff = curr - prev
+            if diff is None:
+                diff = [i , currDiff]
+            if currDiff < diff[1]:
+                diff = [i , currDiff]
+            
+            prev = curr
+        
+        return diff
         
             
   #Financial Analysis
@@ -70,7 +98,7 @@ def financial_results():
     print(f"Total: ${prolo_total()}")
     print(f"Average Change: $")
     print(f"Greatest Increase in Profits: {gre_inc()}")
-    print(f"Greatest Decrease in Profits: ")
+    print(f"Greatest Decrease in Profits: {gre_dec()} ")
 
 financial_results()
 
