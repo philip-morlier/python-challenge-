@@ -26,6 +26,33 @@ def prolo_total():
                 sum = sum + int(line[1])
         return sum
 
+def avr_change():
+    
+    curr=None
+    prev=None
+    
+    for i,j in banklist:
+        if j.startswith("P"):
+            continue
+        if prev is None:
+            prev = int(j)
+            continue
+        
+    curr = int(j)
+    
+    change = curr - prev
+    
+    for i,j in banklist:
+        if j.startswith("P"):
+            continue
+        for i,j in banklist:
+            sum = change 
+        
+    
+    
+    return sum / 85
+        
+
 def gre_inc():
         curr=None
         prev=None
@@ -76,11 +103,14 @@ def gre_dec():
             if diff is None:
                 diff = [i , currDiff]
             if currDiff < diff[1]:
-                diff = [i , currDiff]
+                diff = [i, currDiff]
             
             prev = curr
         
         return diff
+
+ 
+
         
             
   #Financial Analysis
@@ -96,7 +126,7 @@ def financial_results():
     print("------------------------")
     print(f"Total Months: {total_months()}")
     print(f"Total: ${prolo_total()}")
-    print(f"Average Change: $")
+    print(f"Average Change: ${round(avr_change(),2) }")
     print(f"Greatest Increase in Profits: {gre_inc()}")
     print(f"Greatest Decrease in Profits: {gre_dec()} ")
 
