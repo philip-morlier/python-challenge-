@@ -85,3 +85,5 @@ def election_results():
 
 election_results()
 
+exp_file = open("export_test0.txt", "+w")
+
